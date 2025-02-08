@@ -68,7 +68,7 @@ class ThemeModeSelectorThemeData with Diagnosticable {
   }
 
   @override
-  int get hashCode => hashValues(
+  int get hashCode => Object.hash(
         lightToggleColor,
         lightBackgroundColor,
         darkToggleColor,
