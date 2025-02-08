@@ -102,7 +102,7 @@ class ThemeModeSelector extends StatefulWidget {
     Color? darkToggle,
     double height = 39,
     required ValueChanged<ThemeMode> onChanged,
-  })   : _durationInMs = durationInMs,
+  })  : _durationInMs = durationInMs,
         _onChanged = onChanged,
         _lightBackgroundColor = lightBackground,
         _lightToggleColor = lightToggle,
@@ -116,9 +116,9 @@ class ThemeModeSelector extends StatefulWidget {
 }
 
 class _ThemeModeSelectorState extends State<ThemeModeSelector>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController _animationController;
-  Set<MaterialState> _states = {};
+  Set<WidgetState> _states = {};
 
   late Animation<Alignment> _alignmentAnimation;
   late Animation<double> _starFade;
@@ -235,16 +235,16 @@ class _ThemeModeSelectorState extends State<ThemeModeSelector>
   void _handleFocusHighlight(bool value) {
     print('_handleFocusHighlight($value)');
     bool modified = value
-        ? _states.add(MaterialState.focused)
-        : _states.remove(MaterialState.focused);
+        ? _states.add(WidgetState.focused)
+        : _states.remove(WidgetState.focused);
     if (modified) setState(() {});
   }
 
   void _handleHoverHighlight(bool value) {
     print('_handleHoverHighlight($value)');
     bool modified = value
-        ? _states.add(MaterialState.hovered)
-        : _states.remove(MaterialState.hovered);
+        ? _states.add(WidgetState.hovered)
+        : _states.remove(WidgetState.hovered);
     if (modified) setState(() {});
   }
 
@@ -330,7 +330,7 @@ class _ThemeModeSelectorState extends State<ThemeModeSelector>
                 ),
                 FocusBackground(
                   padding: widget._consts.focusPadding,
-                  focused: _states.contains(MaterialState.focused),
+                  focused: _states.contains(WidgetState.focused),
                   width: widget._consts.size.width,
                   height: widget._consts.size.height,
                 ),

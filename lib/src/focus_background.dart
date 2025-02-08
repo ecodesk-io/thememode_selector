@@ -12,7 +12,7 @@ class FocusBackground extends StatelessWidget {
     required bool focused,
     required double height,
     required double width,
-  })   : _padding = padding,
+  })  : _padding = padding,
         _focused = focused,
         _height = height,
         _width = width,
